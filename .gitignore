@@ -1,3 +1,5 @@
 /.idea/
 /CVTest/
 /venv/
+__pycache__
+.DS_Store

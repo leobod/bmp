@@ -1,0 +1,57 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>囊胚质量判定</title>
+    <!-- 首页的样式表 -->
+    <style type="text/css">
+        body { margin: 0px auto; width: 80%; }
+        .header { margin: inherit; padding: inherit; height: 40px; line-height: 40px; background-color: #111820; display: flex; border-bottom: 1px white dashed; }
+        .header-index { width: 30px; height: 30px; padding: 5px; }
+        .header-title { flex: 1; font-family: "Microsoft Sans Serif"; font-size: 14px; color: #FFFFFF; text-align: center; }
+        .header-account { width: 30px; height: 30px; padding: 5px; }
+
+        .article-1 { height: 600px; background-image: url("{% static "Src/Pic-Article-1.png"%}"); background-size: cover; position: relative; border-bottom: 1px white dashed; }
+        .article-1-Access { position: absolute; left: 50%; transform: translate(-50%, -50%); bottom: 240px; width: 280px; height: 50px; border-radius: 20px; }
+
+        .article-2 { background-color: #111820; height: 450px; border-bottom: 1px white dashed; }
+        .article-2-content { margin: 0px auto; width: 60%; height: 80%; }
+        .article-2-content > h3,p { color: #FFFFFF; }
+        .article-2-content > h3 { margin: 0px; padding-top: 50px; }
+
+        .footer { height: 60px; line-height: 60px; background-color: #111820; /*border-bottom: 1px white dashed;*/ }
+        .footer-detail { height: 30px; color: #FFFFFF; text-align: center; }
+    </style>
+</head>
+<body>
+    <!-- 页面的头部，包括首页、标题、登录 -->
+    <div class="header">
+        <img class="header-index" src="{%  static 'Src/Pic-Home.png' %}" />
+        <div class="header-title">囊胚质量判定系统</div>
+        <img class="header-account" src="{% static 'Src/Pic-Account.png' %}" />
+    </div>
+
+    <!-- 页面的正文1，包括背景图、系统入口 -->
+    <div class="article-1">
+        <button class="article-1-Access">进入系统</button>
+    </div>
+
+    <!-- 页面的正文2，包括相关的说明 -->
+    <div class="article-2">
+        <div class="article-2-content">
+            <h3>囊胚</h3>
+            <p>1978年试管婴儿的出生为人类生殖自我调控开创了新纪元。近年来发展的囊胚培养技术已经被证明可以使囊胚种植率得到提升。通常情况下, 囊胚指受精 96～ 120h 后的发育期胚胎。早期囊胚可见于受精后的第 4天 或第5天 ,晚期囊胚可见于受精后的第5天或第6天。囊胚由120～150个细胞组成,包括囊胚腔、内细胞团和滋养层细胞。</p>
+            <p>1998年Gardner等人在私人实践辅助生殖技术中心，对二十三名接受常规IVF周期治疗的患者的胚胎进行培养，证明了只有质量最好的胚胎才能发育至囊胚期。</p>
+            <p>理论基础上可以通过双重染色法，将内细胞团与滋养层细胞区分开。而2008年已经有学者在部分动物的囊胚中通过染色法进行囊胚质量判定并取得了很好的效果。</p>
+        </div>
+    </div>
+
+    <!-- 系统的尾部，包括系统使用的技术、网站备案号 -->
+    <div class="footer">
+        <div class="footer-detail">
+            Powered By Django  ©2019-2020 leobod 苏ICP备17004905号
+        </div>
+    </div>
+
+</body>
+</html>

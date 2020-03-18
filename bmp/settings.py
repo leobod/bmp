@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'Encrypt',
     'Fileload',
     'Logic',
-    'Predict'
+    'Predict',
+    'Message'
 ]
 
 MIDDLEWARE = [

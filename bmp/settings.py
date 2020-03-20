@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from bmpentry.BMPConst.DataBaseConst import DataBase_BMP
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k1u=kobn#9%_--o=k8_h2$t2j(p!y(3cmud52k@j62%5f)&6d1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,12 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Account',
-    'Encrypt',
-    'Fileload',
-    'Logic',
-    'Predict',
-    'Message'
+    'bmpentry',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +77,14 @@ WSGI_APPLICATION = 'bmp.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
+    "default": {
+        "ENGINE": DataBase_BMP["engine"],
+        "NAME": DataBase_BMP["name"],
+        "USER": DataBase_BMP["user"],
+        "PASSWORD": DataBase_BMP["password"],
+        "HOST": DataBase_BMP["host"],
+        "PORT": DataBase_BMP["port"],
+    }
 }
 
 

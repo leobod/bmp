@@ -31,6 +31,6 @@ urlpatterns = [
 ]
 
 # 定义错误跳转页面
-# handler403 = permission_denied
-# handler404 = page_not_found
-# handler500 = page_error
+handler403 = permission_denied
+handler404 = page_not_found
+handler500 = page_error

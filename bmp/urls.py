@@ -18,8 +18,6 @@ from django.urls import path
 from django.conf.urls import include, url
 
 from .views import page_error, page_not_found, permission_denied
-from bmp.settings import STATIC_ROOT
-from django.views import static
 from bmpentry.BMPView import HomeView
 
 urlpatterns = [
@@ -30,10 +28,9 @@ urlpatterns = [
     # url(r'^500', page_error),
     # url(r'^404', page_not_found),
     # url(r'^403', permission_denied),
-    url('^static/(?P<path>.*)$', static.serve, {'document_root': STATIC_ROOT}, name='static'),
 ]
 
 # 定义错误跳转页面
-handler403 = permission_denied
-handler404 = page_not_found
-handler500 = page_error
+# handler403 = permission_denied
+# handler404 = page_not_found
+# handler500 = page_error

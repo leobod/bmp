@@ -1,4 +1,15 @@
-# 短信验证码表的对应的model类
+"""
+    @File: Smscode.py
+    @Type: class -> (model)
+    @Description: 与数据库进行关系映射的类 Smscode
+
+    @Author: Leobod
+    @Version: 1.0.0
+    @Modify Time: 2020-02-19
+
+    @Contract: leobod@eside.cn
+    @License: ©2019-2020 leobod 苏ICP备17004905号
+"""
 
 from django.db import models
 import json

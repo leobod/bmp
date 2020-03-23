@@ -1,5 +1,15 @@
-#!/usr/bin/env python
-#coding=utf-8
+"""
+    @File: SmsByAli.py
+    @Type: function -> (custom)
+    @Description: 使用Ali的短信SDK发送短信
+
+    @Author: Leobod
+    @Version: 1.0.0
+    @Modify Time: 2020-02-19
+
+    @Contract: leobod@eside.cn
+    @License: ©2019-2020 leobod 苏ICP备17004905号
+"""
 
 import json
 from aliyunsdkcore.client import AcsClient

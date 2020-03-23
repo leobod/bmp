@@ -11,7 +11,7 @@
         .header-title { flex: 1; font-family: "Microsoft Sans Serif"; font-size: 14px; color: #FFFFFF; text-align: center; }
         .header-account { width: 30px; height: 30px; padding: 5px; }
 
-        .article-1 { height: 600px; background-image: url("{% static "Src/Pic-Article-1.png"%}"); background-size: cover; position: relative; border-bottom: 1px white dashed; }
+        .article-1 { height: 600px; background-image: url("{% static "pic/home/poster-default.png"%}"); background-size: cover; position: relative; border-bottom: 1px white dashed; }
         .article-1-Access { position: absolute; left: 50%; transform: translate(-50%, -50%); bottom: 240px; width: 280px; height: 50px; border-radius: 20px; }
 
         .article-2 { background-color: #111820; height: 450px; border-bottom: 1px white dashed; }
@@ -26,14 +26,14 @@
 <body>
     <!-- 页面的头部，包括首页、标题、登录 -->
     <div class="header">
-        <img class="header-index" src="{%  static 'Src/Pic-Home.png' %}" />
+        <img class="header-index" src="{%  static 'pic/home/icon-home.png' %}" />
         <div class="header-title">囊胚质量判定系统</div>
-        <img class="header-account" src="{% static 'Src/Pic-Account.png' %}" />
+        <img class="header-account" src="{% static 'pic/home/icon-account.png' %}" />
     </div>
 
     <!-- 页面的正文1，包括背景图、系统入口 -->
     <div class="article-1">
-        <button class="article-1-Access"><a href="/account/index">进入系统</a></button>
+        <button class="article-1-Access"><a href="/account/">进入系统</a></button>
     </div>
 
     <!-- 页面的正文2，包括相关的说明 -->

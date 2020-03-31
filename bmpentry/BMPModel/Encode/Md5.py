@@ -28,3 +28,18 @@ class Md5:
         hl.update(a1.encode(encoding='utf-8'))
 
         return hl.hexdigest()
+
+res = Md5.getMd5("Et234dwf90201u@92809+2")
+print(res)
+
+# md5.js
+# Aa12345678
+# b95495d2b655e0cd832244427261b76a
+# Et234dwf90201u@92809+2
+# f898adfc310aa2d6b9054413fe788217
+# md5.py
+# b95495d2b655e0cd832244427261b76a
+# Et234dwf90201u@92809+2
+# f898adfc310aa2d6b9054413fe788217
+
+

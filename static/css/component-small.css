@@ -1,0 +1,9 @@
+
+/* 组件：表单 */
+.com-form { padding: 5%; display: flex; flex-direction: column; }
+.com-form .title { color: indianred; font-size: 30px; text-align: center; }
+.com-form .text { width: 100%; border-radius: 10px; height: 20px; }
+.com-form .checkbox { }
+.com-form .button { width:100%; height: 40px; background-color: indianred; border-radius: 10px; }
+.com-form .error { color: #ff4000; text-align: center; }
+/*.com-form .error::before { content: "提示: "; }*/

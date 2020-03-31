@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎使用本系统，请登录</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/common-small.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/component-small.css' %}">
+    <style type="text/css">
+        #login-container-outer { width: 77%; height: 100%; }
+        #login-container-inner { background-color: white; height: 55%;  border-radius: 10px; }
+        #login-poster { overflow: hidden; }
+    </style>
+    <script type="module" src="{% static 'js/Login.js' %}"></script>
+</head>
+<body>
+    <div class="layout-flex-col align-hor-c" id="login-container-outer">
+        <div class="unit-n article">
+            <div class="align-ver-c layout-flex-row shadow-all" id="login-container-inner">
+                <img class="unit-3" id="login-poster" src="http://bmp.leobod.cn/static/pic/home/poster-default.png">
+                <div class="unit-2 layout-flex-col com-form">
+                    {% csrf_token %}
+                    <div class="unit-1 title">BMP系统</div>
+                    <div class="unit-n"></div>
+                    <div class="unit-1"> <input class="text" type="text" placeholder="请在此输入账号" name="account" id="in-account"> </div>
+                    <div class="unit-1"> <input class="text" type="password" maxlength="20" placeholder="请在此输入密码" name="password" id="in-password"> </div>
+                    <div class="unit-1"> <input class="checkbox" type="checkbox" id="in-remember">记住密码 </div>
+                    <div class="unit-1"> <label class="error" id="out-tips"></label> </div>
+                    <div class="unit-n"></div>
+                    <div class="unit-1"> <button class="button" onclick="clickDoLogin()" id="do-login">登录</button> </div>
+                    <div class="unit-1" style="text-align: center; ">Or</div>
+                    <div class="unit-1"><button class="button" id="do-register">注册</button> </div>
+                    <div class="unit-2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 系统的尾部，包括系统使用的技术、网站备案号 -->
+        <div class="tpl-footer"> <div class="copyright"> Powered By Django  ©2019-2020 leobod 苏ICP备17004905号 </div> </div>
+    </div>
+
+    <div class="color-bg-container position-bg">
+        <div class="red-4"></div>
+        <div class="white-6"></div>
+    </div>
+
+</body>
+</html>

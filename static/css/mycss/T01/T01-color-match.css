@@ -1,0 +1,23 @@
+
+/**
+ * 背景模版color搭配方案
+ */
+
+.color-bg-container { width: inherit; height: inherit;  }
+.color-bg-container > .red-4 { background-color: indianred; height: 40%; top: 0; }
+.color-bg-container > .blue-4 { background-color: deepskyblue; height: 40%; top: 0; }
+.color-bg-container > .black-4 { background-color: #111820; height: 40%; top: 0 }
+.color-bg-container > .white-6 { background-color: white; height: 60%; bottom: 0; }
+
+/**
+ * z-index只能在position属性值为relative或absolute或fixed的元素上有效。
+ */
+.position-bg { position: fixed; top: 0; left: 0; z-index: -10; }
+
+/**
+ * 阴影效果-4边同时
+ */
+.shadow-all {
+    border-radius: 10px;
+    box-shadow: 5px 0px 5px -5px black, -5px 0 5px -5px black, 0px 5px 5px -5px black, 0px -5px 5px -5px black;
+}

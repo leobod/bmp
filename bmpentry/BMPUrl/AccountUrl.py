@@ -14,8 +14,12 @@ from django.urls import path
 from django.conf.urls import include, url
 
 from bmpentry.BMPView import TestView
+from bmpentry.BMPView import AccountView
 
 urlpatterns = [
-    path('', TestView.index),
+    path('', AccountView.pageLogin),
+    path('login.do', AccountView.doLogin)
+
+
     # url(r'^index', TestView.index),
 ]

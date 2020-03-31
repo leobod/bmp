@@ -1,0 +1,35 @@
+
+html { width: 100%; height: 100%;}
+body { width: 100%; height: 100%; margin: 0; padding: 0; }
+
+/**
+ * Flex布局的常用设置
+ * 水平布局、垂直布局、反向水平、反向垂直
+ * flex大小保留 1，2，3，6，8
+ */
+.layout-flex-col { display: flex; flex-direction: column; }
+.layout-flex-row { display: flex; flex-direction: row; }
+.layout-flex-col-r { display: flex; flex-direction: column-reverse; }
+.layout-flex-row-r { display: flex; flex-direction: row-reverse; }
+
+.unit-n { flex: 1; }
+.unit-space { flex: 1; }
+.unit-1 { flex: 1; }
+.unit-2 { flex: 2; }
+.unit-2 { flex: 2; }
+.unit-3 { flex: 3; }
+.unit-4 { flex: 4; }
+.unit-6 { flex: 6; }
+.unit-8 { flex: 8; }
+
+/**
+ * 水平居中、垂直居中
+ */
+.align-hor-c { margin: 0 auto; }
+.align-ver-c { position: relative; top: 50%; transform: translateY(-50%); }
+
+
+/**
+ * @import "T01-color-match.css";
+ */
+

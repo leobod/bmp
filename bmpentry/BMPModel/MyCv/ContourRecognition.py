@@ -15,7 +15,7 @@ def findCenter(src, cnt):
 
     return maxVal, maxDistPt
 
-def ContourRecognition(file, file2):
+def ContourRecognition(file, file2=None):
     Origin = cv2.imread(file, cv2.IMREAD_ANYCOLOR)
     Origin = cv2.cvtColor(Origin, cv2.COLOR_BGR2HSV)
     V = Origin[:, :, 2]
@@ -55,13 +55,10 @@ def ContourRecognition(file, file2):
             return Result
     return None
 
-# a01 = ContourRecognition("../../../CVTest/A/134.jpg")
-# a02 = ContourRecognition("../../../CVTest/A/135.jpg")
-# a03 = ContourRecognition("../../../CVTest/A/136.jpg")
-# a04 = ContourRecognition("../../../CVTest/A/137.jpg")
-# a05 = ContourRecognition("../../../CVTest/A/138.jpg")
-#
-# print("hello")
-#
-# cv2.waitKey(0)
-#
+a01 = ContourRecognition("./111.jpg", "./111_2.jpg")
+
+
+print("hello")
+
+cv2.waitKey(0)
+

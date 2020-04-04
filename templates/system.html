@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>囊胚质量判定系统--操作台</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{%  static 'css/common-small.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{%  static 'css/system-special.css' %}" />
+    <script type="module" src="{% static 'js/System.js' %}"></script>
+</head>
+<body>
+{% csrf_token %}
+    <div class="layout-flex-col" id="system-container">
+        <div class="tpl-header">
+            <div class="title">囊胚质量判定系统</div>
+            <button id="do-exit"> <img class="icon" src="{%  static 'pic/icon.png' %}" /> </button>
+        </div>
+
+        <div class="unit-n layout-flex-row">
+            <div class="unit-2 layout-flex-col" id="content-menu">
+                <div class="system-user layout-flex-row" >
+                    <div class="tips"> 当前用户: </div>
+                    <div class="unit-n" style="text-align: center; ">{{ user_name }}</div>
+                </div>
+                <button class="choose" id="to-system">首页</button>
+                <button class="" id="to-upload">图片上传</button>
+                <button class="" id="to-history">历史记录</button>
+                <button class="" id="to-predict" disabled="disabled" >结果分析</button>
+                <button class="" id="to-exit">退出</button>
+                <div class="unit-n"></div>
+            </div>
+
+            <div class="unit-8" id="content-container" >
+                <h3>囊胚</h3>
+                <p>初期胚级别</p>
+                <p>受精卵在受精后第二/三天会发育成为4细胞/8细胞初期胚。分裂的时候，细胞呈现圆形、越规则就越好。如果细胞不是紧密排列在一起，而是排列分散或细胞坏死，就说明受精卵质量不好。受精卵碎片越多，质量就越不好，等级的数值也就越大。</p>
+                <p>一级：代表卵裂球大小均匀，没有碎片，怀孕率为20-30%</p>
+                <p>二级：代表卵裂球大小均匀，碎片不超过卵裂球合计体积的10%,怀孕率20-30%</p>
+                <p>三级：代表卵裂球大小不均匀，碎片不超过卵裂球合计体积的10%，怀孕率小于10%</p>
+                <p>四级：代表卵裂球大小不均匀，碎片占卵裂球合计体积的10%-50%，怀孕率小于5%</p>
+                <p>五级：代表卵裂球大小不均匀，碎片超过卵裂球合计体积的一半，怀孕率小于5%</p>
+                <p>滋养层细胞的分级:</p>
+                <p>A级，上皮细胞层由较多的细胞组成，结构致密。</p>
+                <p>B级，上皮细胞层由不多的细胞组成,结构松散。</p>
+                <p>C级，上皮细胞层由稀疏的细胞组成。</p>
+                <p>内细胞团的分级:</p>
+                <p>A级，细胞数目多，排列紧密。</p>
+                <p>B级，细胞数目少，排列松散</p>
+                <p>C级，细胞数目很少。</p>
+                <p>1978年试管婴儿的出生为人类生殖自我调控开创了新纪元。近年来发展的囊胚培养技术已经被证明可以使囊胚种植率得到提升。通常情况下, 囊胚指受精 96～ 120h 后的发育期胚胎。早期囊胚可见于受精后的第 4天 或第5天 ,晚期囊胚可见于受精后的第5天或第6天。囊胚由120～150个细胞组成,包括囊胚腔、内细胞团和滋养层细胞。</p>
+                <p>1998年Gardner等人在私人实践辅助生殖技术中心，对二十三名接受常规IVF周期治疗的患者的胚胎进行培养，证明了只有质量最好的胚胎才能发育至囊胚期。</p>
+                <p>理论基础上可以通过双重染色法，将内细胞团与滋养层细胞区分开。而2008年已经有学者在部分动物的囊胚中通过染色法进行囊胚质量判定并取得了很好的效果。</p>
+            </div>
+        </div>
+
+            <!-- 系统的尾部，包括系统使用的技术、网站备案号 -->
+        <div class="footer">
+            <div class="copyright"> Powered By Django  ©2019-2020 leobod 苏ICP备17004905号 </div>
+        </div>
+    </div>
+
+
+    <div class="color-bg-container position-bg">
+        <div style="background-color: #111820; height: 100%; "></div>
+    </div>
+
+</body>
+</html>

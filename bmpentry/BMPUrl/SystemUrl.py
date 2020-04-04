@@ -19,6 +19,11 @@ from bmpentry.BMPView import SystemView
 urlpatterns = [
     path('', SystemView.pageSystem),
     path('index', SystemView.pageSystem),
+    path('upload', SystemView.pageUpload),
+
+
+    path('exit.do', SystemView.doExit),
+    path("upload.do", SystemView.doUpload)
 
     # url(r'^index', TestView.index),
 ]

@@ -16,9 +16,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from bmpentry.BMPService import SmsService, AccountService
 
 def isLogin(request):
-    uid = request.session.get('BMP_id')
-    print(uid)
-    if uid == None:
+    # del request.session['BMP_id']
+    aid = request.session.get('BMP_id')
+    print(aid)
+    if aid == None:
         return render(request, "login.html")
     else:
         return HttpResponseRedirect('/system/')

@@ -1,5 +1,5 @@
 
-from bmpentry.BMPModel.DataModel import Account
+from bmpentry.BMPModel.DataModel import Account, User
 
 class AccountService:
 
@@ -13,6 +13,11 @@ class AccountService:
             a0.password = str(password)
             a0.astatus = "1"
             a0.save()
+
+            u0 = User()
+            u0.aid = a0
+            u0.uname = account
+            u0.save()
         except Exception as e:
             print("createAccount Exception: " + str(e))
             return False

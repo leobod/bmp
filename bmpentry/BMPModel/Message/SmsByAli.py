@@ -53,13 +53,16 @@ def initSmsParameter(phone, code):
 def actionSendSms(phone, code):
     client = initClient()
     request = initSmsParameter(str(phone), str(code))
-    response = client.do_action(request)
-    print("Type response %s" %(type(response)))
-    res = str(response, encoding="utf-8")
-    print(res)
-    print("Type res %s" %(type(res)))
-    r = json.loads(res)
-    print(type(r))
+    response = client.do_action(request)                # class bytes
+    res = str(response, encoding="utf-8")               # class str
+    r = json.loads(res)                                 # class dict
+    return r
+
+    # if r["Code"] == "OK":
+    #     return True
+    # else:
+    #     return False
+
 
 '''
 Type response <class 'bytes'>
@@ -68,6 +71,14 @@ Type res <class 'str'>
 <class 'dict'>
 '''
 
+'''
+{"Message":"139523483377invalid mobile number","RequestId":"84A18172-BA0D-4AAB-A9FA-C8F484C29AE3","Code":"isv.MOBILE_NUMBER_ILLEGAL"}
+'''
+
+'''
+{"Message":"params must be [a-zA-Z0-9] for verification sms","RequestId":"F9E11FAE-799D-44B5-9425-2AF2CA1BD666","Code":"isv.INVALID_PARAMETERS"}
+'''
+
 
 if __name__ == "__main__":
-    actionSendSms("13952348337", "1211")
+    actionSendSms("13952348337", "中文类容")

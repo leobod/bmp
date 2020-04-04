@@ -13,6 +13,7 @@ const COM = {
     ERROR: "out-tips",
     LOGIN: "do-login",
     REGISTER: "do-register",
+    FORGET: "do-forget",
 };
 const ERRORTIPS = {
     NOERROR: "",
@@ -36,20 +37,7 @@ var clickLogin = function () {
             str_password = hex_md5(str_password);
             let is_remember = T.getTypeInCheckedById(COM.REMEMBER);
             let csrf_token = S.getCsrf();
-            if (is_remember) {
-                document.cookie = "bmp_account =" + str_account;
-                document.cookie = "bmp_password = " + str_password;
-            }
-            let dic = {
-                method: 'POST',
-                url: './login.do',
-                data: {
-                    "account": str_account,
-                    "password": str_password,
-                    "csrfmiddlewaretoken": csrf_token,
-                },
-            };
-            console.log(dic);
+
             R.ajax({
                 method: 'POST',
                 url: './login.do',
@@ -59,7 +47,15 @@ var clickLogin = function () {
                     "csrfmiddlewaretoken": csrf_token
                 },
                 success: function (response) {
-                    console.log(response);
+                    if (response == "True") {
+                        if (is_remember) {
+                            document.cookie = "bmp_account =" + str_account;
+                            document.cookie = "bmp_password = " + str_password;
+                        }
+                        window.location.href = "/system/";
+                    } else {
+                        T.setTypeOutValue(COM.ERROR, "提示： 账号或密码错误，请重试");
+                    }
                 }
             });
         } else {
@@ -73,6 +69,7 @@ var clickLogin = function () {
 var clickRegister = function () {
     window.location.href = "./register";
 };
+
 
 T.getTypeInById(COM.ACCOUNT).onblur = blurAccount;
 T.getTypeDoById(COM.LOGIN).onclick = clickLogin;

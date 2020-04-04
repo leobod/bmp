@@ -18,7 +18,7 @@ class Account(models.Model):
     aid = models.AutoField(name="aid", max_length=10, primary_key=True, db_column="aid")
     phone = models.CharField(name="phone", max_length=11, unique=True, db_column="phone")
     salt = models.CharField(name="salt", max_length=10, unique=True, db_column="salt", default="md5")
-    password = models.CharField(name="password", max_length=20, db_column="password")
+    password = models.CharField(name="password", max_length=50, db_column="password")
     astatus = models.BooleanField(name="astatus", db_column="astatus")
     modify_time = models.DateTimeField(auto_now=True, db_column="modify_time")
     create_time = models.DateTimeField(auto_now_add=True, db_column="create_time")

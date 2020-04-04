@@ -26,4 +26,4 @@ def getAccount():
     a1.save()
 
 if __name__ == "__main__":
-    getAllAccount()
+    createAccount()

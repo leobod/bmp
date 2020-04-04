@@ -18,7 +18,16 @@ from bmpentry.BMPView import AccountView
 
 urlpatterns = [
     path('', AccountView.pageLogin),
-    path('login.do', AccountView.doLogin)
+    path('login', AccountView.pageLogin),
+    path('register', AccountView.pageRegister),
+    path('forget', AccountView.pageForget),
+
+    path('islogin.do', AccountView.isLogin),
+    path('login.do', AccountView.doLogin),
+    path('register.do', AccountView.doRegister),
+    path('forget.do', AccountView.doForget),
+
+    path('sms.do', AccountView.doSms),
 
 
     # url(r'^index', TestView.index),

@@ -25,6 +25,7 @@ from bmpentry.BMPView import HomeView
 urlpatterns = [
     path('', HomeView.index),
     path('account/', include('bmpentry.BMPUrl.AccountUrl')),
+    path('system/', include('bmpentry.BMPUrl.SystemUrl')),
     re_path(r'^static/(?P<path>.*)$', return_static, name='static'),
 ]
 

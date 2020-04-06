@@ -14,6 +14,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
 from bmpentry.BMPService import SmsService, AccountService
+from bmpentry.BMPModel.DataModel import User
 
 def isLogin(request):
     # del request.session['BMP_id']
@@ -49,6 +50,10 @@ def doLogin(request):
         account_id = accountservice.queryPassword(account, password)
         if account_id != None:
             request.session['BMP_id'] = account_id
+            users = User.objects.filter(aid=str(account_id))[0:1]
+            for user in users:
+                user_name = user.uname
+            request.session['BMP_user'] = user_name
             return HttpResponse(True)
         else:
             return HttpResponse(False)

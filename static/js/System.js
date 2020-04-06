@@ -21,6 +21,23 @@ var clickExit = function () {
     });
 };
 
+var clickSystem = function () {
+    window.location.href = "./index";
+};
+var clickUpload = function () {
+    window.location.href = "./upload";
+};
+var clickHistory = function () {
+    window.location.href = "./history";
+};
+var clickResult = function () {
+    window.location.href = "./result";
+};
 
 T.getTypeDoById("do-exit").onclick = clickExit;
 T.getTypeDoById("to-exit").onclick = clickExit;
+
+T.getTypeDoById("to-system").onclick = clickSystem;
+T.getTypeDoById("to-upload").onclick = clickUpload;
+T.getTypeDoById("to-history").onclick = clickHistory;
+T.getTypeDoById("to-predict").onclick = clickResult;

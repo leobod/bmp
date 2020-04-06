@@ -7,6 +7,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="{%  static 'css/common-small.css' %}" />
     <link rel="stylesheet" type="text/css" href="{%  static 'css/system-special.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{%  static 'css/result-special.css' %}" />
     <script type="module" src="{% static 'js/System.js' %}"></script>
 </head>
 <body>
@@ -31,8 +32,44 @@
                 <div class="unit-n"></div>
             </div>
 
-            <div class="unit-8" id="content-container" >
+            <div class="unit-8 layout-flex-row" id="content-container" >
+                <div class="result-unit">
+                    <div class="title"> 原图 </div>
+                    <div class="unit-4"></div>
+                    <div class="unit-2"> <img src="{% static 'pic/7_2.jpg' %}" class="img"> </div>
+                    <div class="unit-4"></div>
 
+                </div>
+                <div class="result-unit">
+                    <div class="title"> 目标物 </div>
+                    <div class="unit-4"></div>
+                    <div class="unit-2"> <img src="{% static 'pic/7.jpg' %}" class="img"> </div>
+                    <div class="unit-4"></div>
+                </div>
+                <div class="result-unit"">
+                    <div class="title"> 颜色提取 </div>
+                    <div class="unit-2"></div>
+                    <div class="unit-2"> <img src="{% static 'pic/7.jpg' %}" class="img"> </div>
+                    <div class="unit-2"></div>
+                    <div class="unit-2"> <img src="{% static 'pic/7.jpg' %}" class="img"> </div>
+                    <div class="unit-2"></div>
+                </div>
+                <div class="result-unit">
+                    <div class="title"> 模型处理 </div>
+                    <div class="unit-4"></div>
+                    <div class="unit-2"> <img src="{% static 'pic/dataprocess.jpg' %}" class="img"> </div>
+                    <div class="unit-4"></div>
+                </div>
+                <div class="result-unit">
+                    <div class="title"> 结果分析 </div>
+                    <div class="unit-4"></div>
+                    <div class="unit-2 layout-flex-col">
+                        <div class="unit-1">A类占据: 18 %</div>
+                        <div class="unit-1">B类占据: 18 %</div>
+                        <div class="unit-1">预测结果: 囊胚质量AA </div>
+                    </div>
+                    <div class="unit-4"></div>
+                </div>
             </div>
         </div>
 

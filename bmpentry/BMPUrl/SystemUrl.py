@@ -20,7 +20,8 @@ urlpatterns = [
     path('', SystemView.pageSystem),
     path('index', SystemView.pageSystem),
     path('upload', SystemView.pageUpload),
-
+    path('history', SystemView.pageHistory),
+    path('result', SystemView.pageResult),
 
     path('exit.do', SystemView.doExit),
     path("upload.do", SystemView.doUpload)

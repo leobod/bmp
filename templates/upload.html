@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>囊胚质量判定系统--操作台</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="{%  static 'css/common-small.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{%  static 'css/system-special.css' %}" />
+    <script type="module" src="{% static 'js/System.js' %}"></script>
+    <style>
+        .goodsimg { display: flex;}
+	    #img { width: 80%; height: 80%; margin-left: -80px; }
+    </style>
+</head>
+<body>
+    <div class="layout-flex-col" id="system-container">
+        <div class="tpl-header">
+            <div class="title">囊胚质量判定系统</div>
+            <button id="do-exit"> <img class="icon" src="{%  static 'pic/icon.png' %}" /> </button>
+        </div>
+
+        <div class="unit-n layout-flex-row">
+            <div class="unit-2 layout-flex-col" id="content-menu">
+                <div class="system-user layout-flex-row" >
+                    <div class="tips"> 当前用户: </div>
+                    <div class="unit-n" style="text-align: center; ">{{ user_name }}</div>
+                </div>
+                <button class="" id="to-system">首页</button>
+                <button class="choose" id="to-upload">图片上传</button>
+                <button class="" id="to-history">历史记录</button>
+                <button class="" id="to-predict" disabled="disabled" >结果分析</button>
+                <button class="" id="to-exit">退出</button>
+                <div class="unit-n"></div>
+            </div>
+
+            <div class="unit-8" id="content-container" >
+                <form action="./upload.do" method="post" enctype="multipart/form-data" class="layout-flex-col" style="height: 100%;">
+                    {% csrf_token %}
+                        <div class="input-inline goodsimg unit-6">
+                            <input name="img" type="file" id="file_input" class="filepath" onchange="changepic(this)" accept="image/jpg,image/jpeg,image/png,image/PNG">
+                            <img id="img" src="#" alt="">
+                        </div>
+                        <div class="unit-2"> <button type="submit">上传</button> </div>
+                        <div class="unit-4"></div>
+                </form>
+
+            </div>
+        </div>
+
+            <!-- 系统的尾部，包括系统使用的技术、网站备案号 -->
+        <div class="footer">
+            <div class="copyright"> Powered By Django  ©2019-2020 leobod 苏ICP备17004905号 </div>
+        </div>
+    </div>
+
+
+    <div class="color-bg-container position-bg">
+        <div style="background-color: #111820; height: 100%; "></div>
+    </div>
+<script>
+    var img = document.getElementById("img"); //获取显示图片的div元素
+    var input = document.getElementById("file_input"); //获取选择图片的input元素
+    //这边是判断本浏览器是否支持这个API。
+    if (typeof FileReader === 'undefined') {
+        aaa.innerHTML = "抱歉，你的浏览器不支持 FileReader";
+        input.setAttribute('disabled', 'disabled');
+    } else {
+        input.addEventListener('change', readFile, false); //如果支持就监听改变事件，
+    }
+
+    function readFile() {
+        var file = this.files[0]; //获取file对象
+        //判断file的类型是不是图片类型。
+        if (!/image\/\w+/.test(file.type)) {
+            alert("文件必须为图片！");
+            return false;
+        }
+
+        var reader = new FileReader(); //声明一个FileReader实例
+        reader.readAsDataURL(file); //调用readAsDataURL方法来读取选中的图像文件
+        //最后在onload事件中，获取到成功读取的文件内容，并以插入一个img节点的方式显示选中的图片
+        reader.onload = function (e) {
+            img.setAttribute('src',  this.result);
+        }
+    }
+</script>
+</body>
+</html>
+
+
+

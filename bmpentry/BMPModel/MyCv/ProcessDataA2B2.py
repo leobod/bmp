@@ -15,7 +15,7 @@ def listfile(dirname="../../../static/data/A2", postfix='.jpg'):
                 filelist.extend(listfile(dirname + item + '/', postfix))
     return filelist, files
 
-W = WriteDataToCsv(file_path="resultA.csv")
+W = WriteDataToCsv(file_path="csv/resultA.csv")
 filelist, files = listfile("../../../static/data/A2", postfix=".jpg")
 
 for i in range(0, len(filelist), 1):
@@ -26,7 +26,7 @@ print("hello")
 W.write()
 
 
-W = WriteDataToCsv(file_path="resultB.csv")
+W = WriteDataToCsv(file_path="csv/resultB.csv")
 filelist, files = listfile("../../../static/data/B2", postfix=".jpg")
 
 for i in range(0, len(filelist), 1):

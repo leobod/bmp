@@ -1,0 +1,4 @@
+
+.result-unit { flex: 2; display: flex; flex-direction: column; border: 1px solid; }
+.result-unit > .title { text-align: center; border: 1px solid; }
+.result-unit  .img { width: 100%; height: 66%; }

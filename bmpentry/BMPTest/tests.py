@@ -62,6 +62,6 @@ if __name__ == "__main__":
     # print(a[2:3])
 
     h = HistoryService()
-    h.queryData("16", 16)
+    print(h.queryRatio("10"))
 
 

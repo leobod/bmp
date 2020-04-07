@@ -1,0 +1,5 @@
+#history-container { flex: 4; width: 100%; height: 100%; overflow: hidden; display: flex; flex-direction: column; border: 1px solid black; }
+#history-container .record-unit { height: 30px; border: 1px solid black; text-align: center; line-height: 32px; display: flex; flex-direction: row; }
+#history-title { display: flex; flex-direction: row; height: 35px; border: 1px solid black; text-align: center; line-height: 36px; }
+#history-title div { border: 1px solid black; }
+#history-pagechange { display: flex; flex-direction: row; }

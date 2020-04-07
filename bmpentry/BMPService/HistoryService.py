@@ -1,5 +1,6 @@
 
-from bmpentry.BMPModel.DataModel import Order
+from bmpentry.BMPModel.DataModel import Order, Account
+import os
 
 class HistoryService:
 
@@ -55,4 +56,45 @@ class HistoryService:
             QueryData.append((i,history))
             i = i+1
         return QueryData
+
+    def createInitOrder(self, aid):
+        a0 = Account.objects.filter(aid=aid)
+        a1 = a0.get(aid=aid)
+        order = Order()
+        order.aid = a1
+        order.ostatus = "0"
+        order.odir = "static/data/"
+        order.save()
+
+        order.odir = "static/data/" + str(a1.aid) + "/" + str(order.oid) + "/"
+        os.makedirs(order.odir)
+        order.ostatus = "1"
+        order.save()
+        return order.oid, order.odir
+
+    def changeStatus(self, oid, ostatus):
+        order = Order.objects.get(oid=oid)
+        order.ostatus = ostatus
+        order.save()
+
+
+    def updateRatio(self, oid, oratiored, oratiogreen):
+        order = Order.objects.get(oid=oid)
+        order.oratiored = oratiored
+        order.oratiogreen = oratiogreen
+        order.oratioother = 1-oratiored-oratiogreen
+        order.ostatus = "3"
+        order.save()
+
+    def updateResult(self, oid, oresulta, oresultall):
+        order = Order.objects.get(oid=oid)
+        order.oresulta = oresulta
+        order.oresultall = oresultall
+        order.ostatus = "4"
+        order.save()
+
+    def queryRatio(self, oid):
+        order = Order.objects.get(oid=oid)
+        return order.oratiored, order.oratiogreen, order.oratioother
+
 

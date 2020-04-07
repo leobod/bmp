@@ -1,7 +1,7 @@
 import pandas as pd
 
 class WriteDataToCsv:
-    def __init__(self, file_path="result.csv"):
+    def __init__(self, file_path="result.first_csv"):
         self.columns = ["NO", "All", "Red", "Green", "Result"]
         self.file_path = file_path
         self.result_list = []
@@ -20,4 +20,4 @@ class WriteDataToCsv:
 # columns = ["URL", "predict", "score"]
 # dt = pd.DataFrame(result_list, columns=columns)
 # dt.to_excel("result_xlsx.xlsx", index=0)
-# dt.to_csv("resultA.csv", index=0)
+# dt.to_csv("resultA.first_csv", index=0)

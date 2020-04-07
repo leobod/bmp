@@ -8,6 +8,7 @@ from django.core import serializers
 
 from json import dumps, loads
 
+from bmpentry.BMPService import HistoryService
 
 def createAccount():
     account = Account()
@@ -44,7 +45,10 @@ def createOrder():
     order.save()
 
 def queryOrder():
-    data = serializers.serialize("json", Order.objects.filter(aid="16")[0:2])
+    D = Order.objects.filter(aid="16")
+    print(len(D))
+    data = serializers.serialize("json", Order.objects.filter(aid="16"))
+    print(len(data))
     print(data)
 
     # orders = Order.objects.filter(aid="16")
@@ -53,8 +57,11 @@ def queryOrder():
 
 
 if __name__ == "__main__":
-    users = User.objects.filter(aid="16")[0:1]
-    for user in users:
-        user_name = user.uname
-    print(user_name)
+    # queryOrder()
+    # a = list(range(0, 9, 1))
+    # print(a[2:3])
+
+    h = HistoryService()
+    h.queryData("16", 16)
+
 

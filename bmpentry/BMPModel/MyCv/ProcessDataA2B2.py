@@ -15,26 +15,35 @@ def listfile(dirname="../../../static/data/A2", postfix='.jpg'):
                 filelist.extend(listfile(dirname + item + '/', postfix))
     return filelist, files
 
-W = WriteDataToCsv(file_path="csv/resultA.csv")
-filelist, files = listfile("../../../static/data/A2", postfix=".jpg")
-
+W = WriteDataToCsv(file_path="second_csv/resultAA.csv")
+filelist, files = listfile("../../../static/data/AAAA2/AA", postfix=".jpg")
 for i in range(0, len(filelist), 1):
-    W.appendData("A" + files[i], 160000, RedFilter(filelist[i]), GreenFilter(filelist[i]), "A")
-
+    W.appendData("AA" + files[i], 160000, RedFilter(filelist[i]), GreenFilter(filelist[i]), "AA")
 print("hello")
-
 W.write()
 
 
-W = WriteDataToCsv(file_path="csv/resultB.csv")
-filelist, files = listfile("../../../static/data/B2", postfix=".jpg")
-
+W = WriteDataToCsv(file_path="second_csv/resultAB.csv")
+filelist, files = listfile("../../../static/data/AAAA2/AB", postfix=".jpg")
 for i in range(0, len(filelist), 1):
-    W.appendData("B" + files[i], 160000, RedFilter(filelist[i]), GreenFilter(filelist[i]), "B")
-
-
+    W.appendData("AB" + files[i], 160000, RedFilter(filelist[i]), GreenFilter(filelist[i]), "AB")
 print("hello")
+W.write()
 
+
+W = WriteDataToCsv(file_path="second_csv/resultBA.csv")
+filelist, files = listfile("../../../static/data/AAAA2/BA", postfix=".jpg")
+for i in range(0, len(filelist), 1):
+    W.appendData("BA" + files[i], 160000, RedFilter(filelist[i]), GreenFilter(filelist[i]), "BA")
+print("hello")
+W.write()
+
+
+W = WriteDataToCsv(file_path="second_csv/resultBB.csv")
+filelist, files = listfile("../../../static/data/AAAA2/BB", postfix=".jpg")
+for i in range(0, len(filelist), 1):
+    W.appendData("BB" + files[i], 160000, RedFilter(filelist[i]), GreenFilter(filelist[i]), "BB")
+print("hello")
 W.write()
 
 

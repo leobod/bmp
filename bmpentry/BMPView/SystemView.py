@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from bmpentry.BMPModel.DataModel import Account, User
+from bmpentry.BMPService import HistoryService
 
 def pageSystem(request):
     aid = request.session.get('BMP_id')
@@ -28,8 +29,10 @@ def pageHistory(request):
         return render(request, "login.html")
     else:
         user_name = request.session.get('BMP_user')
-
-        return render(request, "./history.html", {"user_name": user_name})
+        history_obj = HistoryService()
+        querydata = history_obj.queryData(aid,0)
+        print(querydata)
+        return render(request, "./history.html", {"user_name": user_name, "querydata": querydata})
 
 def pageResult(request):
     aid = request.session.get('BMP_id')
@@ -37,6 +40,7 @@ def pageResult(request):
         return render(request, "login.html")
     else:
         user_name = request.session.get('BMP_user')
+
 
         return render(request, "./result.html", {"user_name": user_name})
 
@@ -52,9 +56,15 @@ def doUpload(request):
         print(imgfile.size)
         print(imgfile.content_type)
         fobj = open("./test.jpg", 'wb');
-        for chrunk in imgfile.chunks():
-            fobj.write(chrunk);
+        fobj.write(imgfile.read());
         fobj.close();
+        aid = request.session.get('BMP_id')
+        user_name = request.session.get('BMP_user')
+        history_obj = HistoryService()
+        querydata = history_obj.queryData(aid,0)
+        return render(request, "./history.html", {"user_name": user_name, "querydata": querydata})
+    else:
+        return HttpResponse("NotSupport")
 
         # imgfile.name 文件名称
     # print(request)

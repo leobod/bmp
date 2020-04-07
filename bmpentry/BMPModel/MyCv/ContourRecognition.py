@@ -55,10 +55,4 @@ def ContourRecognition(file, file2=None):
             return Result
     return None
 
-a01 = ContourRecognition("./111.jpg", "./111_2.jpg")
-
-
-print("hello")
-
-cv2.waitKey(0)
 

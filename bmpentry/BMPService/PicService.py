@@ -13,7 +13,7 @@ class PicService:
         tmpdir2 = tmpdir + "01.jpg"
         fobj = open(tmpdir2, 'wb')
         fobj.write(imgfile.read())
-        fobj.close();
+        fobj.close()
 
         process = ProcessChain()
         process.doProcess(tmpdir, oid)

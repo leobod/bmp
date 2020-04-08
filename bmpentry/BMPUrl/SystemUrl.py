@@ -21,10 +21,10 @@ urlpatterns = [
     path('index', SystemView.pageSystem),
     path('upload', SystemView.pageUpload),
     path('history', SystemView.pageHistory),
-    path('result', SystemView.pageResult),
 
     path('exit.do', SystemView.doExit),
-    path("upload.do", SystemView.doUpload)
-
+    path("upload.do", SystemView.doUpload),
+    path("result.do", SystemView.doResult),
+    path("history.do", SystemView.doHistory),
     # url(r'^index', TestView.index),
 ]

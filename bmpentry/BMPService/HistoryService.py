@@ -41,7 +41,7 @@ class HistoryService:
                 if d.oresultall == 1:
                     d.oresultall = "有妊娠"
                 else:
-                    d.oresultall = "无"
+                    d.oresultall = "无妊娠"
             history = {
                 "oid": d.oid,
                 "ostatus": d.ostatus,
@@ -96,5 +96,28 @@ class HistoryService:
     def queryRatio(self, oid):
         order = Order.objects.get(oid=oid)
         return order.oratiored, order.oratiogreen, order.oratioother
+
+    def queryResult(self, oid):
+        order = Order.objects.get(oid=oid)
+        resulta = "无法识别的结果"
+        resultb = "无法识别的结果"
+        resultall = "无法识别的结果"
+        if order.oresulta != None:
+            if order.oresulta == 1:
+                resulta = "A"
+            else:
+                resulta = "B"
+        if order.oresultb != None:
+            if order.oresultb == 1:
+                resultb = "A"
+            else:
+                resultb = "B"
+        if order.oresultall != None:
+            if order.oresultall == 1:
+                resultall = "有妊娠"
+            else:
+                resultall = "无妊娠"
+        return resulta, resultb, resultall
+
 
 

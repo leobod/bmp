@@ -50,22 +50,26 @@
                         <div class="record-unit">
                             <div class="unit-1"> {{ i }} </div>
                             <div class="unit-2"> {{ d.oid }} </div>
-                            <div class="unit-1"> {{ d.oratiored }} %</div>
-                            <div class="unit-1"> {{ d.oratiogreen }} %</div>
+                            <div class="unit-1"> {{ d.oratiored|floatformat:2 }} %</div>
+                            <div class="unit-1"> {{ d.oratiogreen|floatformat:2 }} %</div>
                             <div class="unit-1"> {{ d.oresulta }} </div>
                             <div class="unit-1"> {{ d.oresultall }} </div>
-                            <div class="unit-1"> <button value="{{ d.oid }}">查看具体内容</button> </div>
+                            <form method="post" action="./result.do">
+                                {% csrf_token %}
+                                <div class="unit-1"> <button name="oid" value="{{ d.oid }}">查看具体内容</button> </div>
+                            </form>
                         </div>
                     {% endfor %}
                 </div>
 
-                <div class="unit-n" id="history-pagechange">
+                <form method="post" action="./history.do" class="unit-n" id="history-pagechange">
                     <div class="unit-8"></div>
-                    <div > <button>上一页</button> </div>
-                    <div > <input type="text" style="width: 20px; text-align: center;" value="1"> </div>
-                    <div > <button>下一页</button> </div>
+                        {% csrf_token %}
+                        <div > <button name="nextpage" value="-1">上一页</button> </div>
+                        <div > <input type="text" style="width: 20px; text-align: center;" name="currentpage" value="{{ currentpage }}"> </div>
+                        <div > <button name="nextpage" value="1">下一页</button> </div>
                     <div class="unit-1"></div>
-                </div>
+                </form>
 
             </div>
         </div>

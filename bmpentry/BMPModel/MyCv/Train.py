@@ -6,22 +6,23 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn import svm
 
-df = pd.read_csv('first_csv/S1ResultAll.csv')
-# df = pd.read_csv('second_csv/S3ResultALL.csv')
+# df = pd.read_csv('first_csv/S1ResultAll.csv')
+df = pd.read_csv('second_csv/S3ResultALL.csv')
 
-col = ["RatioR", "RatioG", "RatioBg"]
+# col = ["RatioR", "RatioG", "RatioBg"]
+col = ["RatioR", "RatioG"]
 X_all = df[col]
 Y_all = df["Result"]
 X_np_all = X_all
 Y_np_all = Y_all
 
 # 训练集，测试集切分
-X_np_train, X_np_test, Y_np_train, Y_np_test = train_test_split(X_np_all, Y_np_all, random_state=1, train_size=0.9)
+X_np_train, X_np_test, Y_np_train, Y_np_test = train_test_split(X_np_all, Y_np_all, random_state=1, train_size=0.6)
 
 
 # 使用svm
-# clf = svm.SVC(C=10, kernel='rbf', gamma=4, decision_function_shape='ovr')
-clf = svm.SVC(C=1, kernel='linear', gamma=0.01, decision_function_shape='ovo')
+clf = svm.SVC(C=10, kernel='rbf', gamma=4, decision_function_shape='ovr')
+# clf = svm.SVC(C=1, kernel='linear', gamma=0.01, decision_function_shape='ovo')
 clf.fit(X_np_train, Y_np_train)
 
 grade = clf.score(X_np_train, Y_np_train)
@@ -33,6 +34,7 @@ grade = clf.score(X_np_test, Y_np_test)
 y_hat = clf.predict(X_np_test)
 # show_accuracy(y_hat, X_np_test, '测试集')
 print("测试集精度 : " + str(grade))
+joblib.dump(clf, '''mmodel/train_all.m''')
 
 from sklearn.linear_model import LogisticRegression
 
@@ -46,7 +48,7 @@ print("训练集精度 : " + str(grade))
 print("逻辑回归")
 print(lr_model.score(X_np_test, Y_np_test))  # 获取测试集的评分
 
-joblib.dump(lr_model, '''mmodel/train_all.m''')
+# joblib.dump(lr_model, '''mmodel/PredictAll.m''')
 
 
 from sklearn.cluster import KMeans
@@ -76,15 +78,15 @@ print(clf.best_params_)
 # 测试集精度 : 0.5
 
 
-X_np_train, X_np_test, Y_np_train, Y_np_test = train_test_split(X_np_train, Y_np_train, random_state=1, train_size=0.9)
-lr_model = LogisticRegression()  # 调用模型，但是并未经过任何调参操作，使用默认值
-lr_model.fit(X_np_train, Y_np_train)  # 训练模型
-grade = lr_model.score(X_np_train, Y_np_train)
-y_hat = lr_model.predict(X_np_train)
-# print(y_hat)
-print("训练集精度 : " + str(grade))
-print("逻辑回归")
-print(lr_model.score(X_np_test, Y_np_test))  # 获取测试集的评分
+# X_np_train, X_np_test, Y_np_train, Y_np_test = train_test_split(X_np_train, Y_np_train, random_state=1, train_size=0.6)
+# lr_model = LogisticRegression()  # 调用模型，但是并未经过任何调参操作，使用默认值
+# lr_model.fit(X_np_train, Y_np_train)  # 训练模型
+# grade = lr_model.score(X_np_train, Y_np_train)
+# y_hat = lr_model.predict(X_np_train)
+# # print(y_hat)
+# print("训练集精度 : " + str(grade))
+# print("逻辑回归")
+# print(lr_model.score(X_np_test, Y_np_test))  # 获取测试集的评分
 
 
 ### h3查看决策函数

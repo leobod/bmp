@@ -10,14 +10,18 @@ class Step2(Handle):
         pass
 
     def doProcess(self, pic_dir, oid):
-        redSum = float(self.RedFilter(pic_dir+"02.jpg")/160000.0)
-        greenSum = float(self.GreenFilter(pic_dir+"02.jpg")/160000.0)
+        pic_path1 = pic_dir + "03.jpg"
+        pic_path2 = pic_dir + "04.jpg"
+        redSum = float('%.6f' % (self.RedFilter(pic_path1, pic_dir+"02.jpg")/160000.0))
+        greenSum = float( '%.6f' % (self.GreenFilter(pic_path2, pic_dir+"02.jpg")/160000.0))
+        print(redSum)
+
         history = HistoryService()
         print("Chain 002 execute")
         history.updateRatio(oid, redSum, greenSum)
         self.next.doProcess(pic_dir, oid)
 
-    def RedFilter(self, file):
+    def RedFilter(self, pic_dir, file):
         origin = cv2.imread(file, cv2.IMREAD_COLOR)
         dst = cv2.cvtColor(origin, cv2.COLOR_BGR2HSV)
         red_lower_hsv = np.array([0, 43, 46])
@@ -34,11 +38,12 @@ class Step2(Handle):
         for cnt in contours:
             unit_area = cv2.contourArea(cnt)
             if unit_area > 1000:
-                # Border = cv2.drawContours(origin, cnt, -1, (0, 0, 255), 2)
+                Border = cv2.drawContours(origin, cnt, -1, (0, 0, 255), 5)
+                cv2.imwrite(pic_dir, Border)
                 redsum += unit_area
         return redsum
 
-    def GreenFilter(self, file):
+    def GreenFilter(self, pic_dir, file):
         origin = cv2.imread(file, cv2.IMREAD_COLOR)
         dst = cv2.cvtColor(origin, cv2.COLOR_BGR2HSV)
         green_lower_hsv = np.array([37, 43, 46])
@@ -55,7 +60,8 @@ class Step2(Handle):
         for cnt in contours:
             unit_area = cv2.contourArea(cnt)
             if unit_area > 1000:
-                # Border = cv2.drawContours(origin, cnt, -1, (0, 0, 255), 2)
+                Border = cv2.drawContours(origin, cnt, -1, (0, 0, 255), 5)
+                cv2.imwrite(pic_dir, Border)
                 greensum += unit_area
         return greensum
 

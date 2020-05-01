@@ -17,6 +17,6 @@ DataBase_BMP = {
     "name": "bmp",
     "user": "bmp",
     "password": "AfDrCBb6benmDWRy",
-    "host": "bmp.leobod.cn",
+    "host": "rm-2ze5jk3k148ldmyjuzo.mysql.rds.aliyuncs.com",
     "port": "3306"
 }
